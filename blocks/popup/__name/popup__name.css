@@ -1,0 +1,29 @@
+.popup__name {
+  outline: none;
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; 
+
+  margin: 54px auto 0 36px;
+  padding: 0;
+  min-width: 358px;
+  min-height: 27px;
+  color: black;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(16.94/14);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-align: start;
+}
+
+@media screen and (max-width: 605px) {
+  .popup__name {
+    margin: 75px auto 0 22px;
+    min-width: 238px;
+  }
+}
