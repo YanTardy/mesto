@@ -1,11 +1,10 @@
 .profile__name {
   margin: 0 0 9px;
   padding: 0;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
-  line-height: calc(48/42);
+  line-height: 48px;
   max-width: 294px;
   text-overflow: ellipsis;
   white-space: nowrap;
