@@ -31,49 +31,7 @@
       </section>
 
       <section class="places">
-        <article class="place">
-          <img class="place__image" src="./images/place/place-kash.jpg" alt="Фото">
-          <div class="place__info">
-            <h2 class="place__title">Каш</h2>
-            <button class="place__like" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./images/place/place-tbilisi.jpg" alt="Фото">
-          <div class="place__info">
-            <h2 class="place__title">Тбилиси</h2>
-            <button class="place__like" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./images/place/place-munich.jpg" alt="Фото">
-          <div class="place__info">
-            <h2 class="place__title">Мюнхен</h2>
-            <button class="place__like" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./images/place/place-zalcburg.jpg" alt="Фото">
-          <div class="place__info">
-            <h2 class="place__title">Зальцбург</h2>
-            <button class="place__like" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./images/place/place-barcelone.jpg" alt="Фото">
-          <div class="place__info">
-            <h2 class="place__title">Барселона</h2>
-            <button class="place__like" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./images/place/place-bamberg.jpg" alt="Фото">
-          <div class="place__info">
-            <h2 class="place__title">Бамберг</h2>
-            <button class="place__like" type="button"></button>
-          </div>
-        </article>
-      </section>
+      </section>  
 
     </main>
 
@@ -83,17 +41,50 @@
 
   </div>
 
-  <div class="popup">
+  <div class="popup popup_type_profile-edit">
     <div class="popup__container">
-      <button class="popup__close" type="button"></button>
+      <button class="popup__close popup__close_type_profile" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="form-profile">
-        <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя">
-        <input class="popup__input popup__input_type_description" type="text" name="job" placeholder="Вид деятельности">
+      <form class="popup__form popup__form_type_profile-edit" name="form-profile">
+        <input class="popup__input popup__input_type_profile-name" type="text" name="profile-name" placeholder="Имя">
+        <input class="popup__input popup__input_type_profile-job" type="text" name="profile-job"
+          placeholder="Вид деятельности">
         <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
+
+  <div class="popup popup_type_place-add">
+    <div class="popup__container">
+      <button class="popup__close popup__close_type_add" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup__form_type_place-add" name="form-place">
+        <input class="popup__input popup__input_type_place-name" type="text" name="place-name" placeholder="Название">
+        <input class="popup__input popup__input_type_place-link" type="text" name="place-link"
+          placeholder="Ссылка на картинку">
+        <button class="popup__save" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_image-zoom">
+    <figure class="popup__container_type_image-zoom">
+      <button class="popup__close popup__close_type_image-zoom" type="button"></button>
+      <img class="popup__content" src="" alt="">
+      <figcaption class="popup__figcaption"></figcaption>
+    </article>
+  </div>
+
+  <template class="template-card">
+    <article class="place">
+      <img class="place__image" src="" alt="Фото">
+      <button class="place__delete" type="button"></button>
+      <div class="place__info">
+        <h2 class="place__title"></h2>
+        <button class="place__like" type="button"></button>
+      </div>
+    </article>
+  </template>
 
   <script src="./scripts/script.js"></script>
 </body>
