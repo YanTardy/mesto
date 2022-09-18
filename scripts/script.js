@@ -30,14 +30,14 @@ const contentTemplate = document.querySelector('.template-card').content;
 const cardTemplate = contentTemplate.querySelector('.place');
 
 //ФУНКЦИИ
-function prepareCard(Card) {
+function prepareCard(card) {
   const cardElement = cardTemplate.cloneNode(true);
   const imagePlace = cardElement.querySelector('.place__image');
 
-  imagePlace.src = Card.link;
-  imagePlace.alt = Card.name;
-  imagePlace.addEventListener('click', () => zoomImage(Card.name, Card.link));
-  cardElement.querySelector('.place__title').textContent = Card.name;
+  imagePlace.src = card.link;
+  imagePlace.alt = card.name;
+  imagePlace.addEventListener('click', () => zoomImage(card.name, card.link));
+  cardElement.querySelector('.place__title').textContent = card.name;
   cardElement.querySelector('.place__like').addEventListener('click', toggleLike);
   cardElement.querySelector('.place__delete').addEventListener('click', deletePlace);
 
@@ -90,20 +90,15 @@ function handleEditProfileFormSubmit(evt) {
   closePopup(popupEdit);
 }
 
-function createCard(initialCards) {
-  const cardElement = prepareCard(initialCards);
-  containerPlaces.append(cardElement);
-}
-
-function addCard(dataInput) {
-  const cardElement = prepareCard(dataInput);
+function addCard(card) {
+  const cardElement = prepareCard(card);
   containerPlaces.prepend(cardElement);
 }
 
 
 //СЛУШАТЕЛИ (и не только)
-initialCards.forEach((cardData) => {
-  createCard(cardData);
+initialCardsReversed.forEach((cardData) => {
+  addCard(cardData);
 });
 
 buttonEdit.addEventListener('click', () => {
