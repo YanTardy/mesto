@@ -29,6 +29,17 @@ const containerPlaces = document.querySelector('.places');
 const contentTemplate = document.querySelector('.template-card').content;
 const cardTemplate = contentTemplate.querySelector('.place');
 
+//ДЛЯ ВАЛИДАЦИИ ФОРМ
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
+const submitButtonElement = popupAdd.querySelector(config.submitButtonSelector);
+
 //ФУНКЦИИ
 function prepareCard(card) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -46,6 +57,7 @@ function prepareCard(card) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  disableButton(config, submitButtonElement);
 }
 
 function closePopup(popup) {
@@ -95,6 +107,19 @@ function addCard(card) {
   containerPlaces.prepend(cardElement);
 }
 
+function handleEscClosePopup(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupEdit);
+    closePopup(popupAdd);
+    closePopup(popupZoom);
+  }
+}
+
+function handleClosePopup(evt) {
+  if (evt.target.classList.contains('popup_opened') || evt.target.closest('popup__close')) {
+    closePopup(evt.target.closest('.popup'));
+  }
+}
 
 //СЛУШАТЕЛИ (и не только)
 initialCardsReversed.forEach((cardData) => {
@@ -125,3 +150,7 @@ popupZoomCloseBtn.addEventListener('click', () => {
 
 formEdit.addEventListener('submit', handleEditProfileFormSubmit);
 formAdd.addEventListener('submit', handleAddCardFormSubmit);
+popupAdd.addEventListener('click', handleClosePopup);
+popupEdit.addEventListener('click', handleClosePopup);
+popupZoom.addEventListener('click', handleClosePopup);
+document.addEventListener('keydown', handleEscClosePopup);
