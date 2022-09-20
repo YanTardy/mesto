@@ -38,7 +38,7 @@ const config = {
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
 };
-const submitButtonElement = popupAdd.querySelector(config.submitButtonSelector);
+const buttonElementSubmit = popupAdd.querySelector(config.submitButtonSelector);
 
 //ФУНКЦИИ
 function prepareCard(card) {
@@ -57,7 +57,6 @@ function prepareCard(card) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  disableButton(config, submitButtonElement);
 }
 
 function closePopup(popup) {
@@ -74,6 +73,7 @@ function deletePlace(evt) {
 
 function openPopupImage() {
   openPopup(popupZoom);
+  document.addEventListener('keydown', handleEscClosePopup);
 }
 
 function zoomImage(placeTitle, placeLink) {
@@ -130,22 +130,28 @@ buttonEdit.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileDescription.textContent;
   openPopup(popupEdit);
+  document.addEventListener('keydown', handleEscClosePopup);
 });
 
 buttonAdd.addEventListener('click', () => {
   openPopup(popupAdd);
+  disableButton(config, buttonElementSubmit);
+  document.addEventListener('keydown', handleEscClosePopup);
 });
 
 popupEditCloseBtn.addEventListener('click', () => {
   closePopup(popupEdit);
+  document.removeEventListener('keydown', handleEscClosePopup);
 });
 
 popupAddCloseBtn.addEventListener('click', () => {
   closePopup(popupAdd);
+  document.removeEventListener('keydown', handleEscClosePopup);
 });
 
 popupZoomCloseBtn.addEventListener('click', () => {
   closePopup(popupZoom);
+  document.removeEventListener('keydown', handleEscClosePopup);
 });
 
 formEdit.addEventListener('submit', handleEditProfileFormSubmit);
@@ -153,4 +159,3 @@ formAdd.addEventListener('submit', handleAddCardFormSubmit);
 popupAdd.addEventListener('click', handleClosePopup);
 popupEdit.addEventListener('click', handleClosePopup);
 popupZoom.addEventListener('click', handleClosePopup);
-document.addEventListener('keydown', handleEscClosePopup);

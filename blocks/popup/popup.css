@@ -9,7 +9,7 @@
   align-content: center;
   justify-content: center;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   z-index: 2;
   display: flex;
